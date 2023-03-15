@@ -31,7 +31,7 @@ type Message = {
 
 export const chatApi = createApi({
   reducerPath: 'chatApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://chatback.fly.dev:3001'}),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://chatback.fly.dev'}),
   // baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001'}),
   tagTypes: ['Messaages'],
   endpoints: (builder) => ({
