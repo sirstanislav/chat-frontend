@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const location = document.location;
 const token = localStorage.getItem('token');
-const socket = io(`wss://chatback.fly.dev:${location.port}`, {
+const socket = io(`wss://chatback.fly.dev:3001`, {
   transportOptions: {
     polling: {
       extraHeaders: {
@@ -12,7 +12,15 @@ const socket = io(`wss://chatback.fly.dev:${location.port}`, {
     },
   },
 });
-// const socket = io('ws://localhost:3001');
+// const socket = io(`ws://localhost:3001`, {
+//   transportOptions: {
+//     polling: {
+//       extraHeaders: {
+//         'Authorization': `Bearer ${token}`,
+//       },
+//     },
+//   },
+// });
 
 type Message = {
   owner: string;
@@ -23,7 +31,7 @@ type Message = {
 
 export const chatApi = createApi({
   reducerPath: 'chatApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://chatback.fly.dev'}),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://chatback.fly.dev:3001'}),
   // baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001'}),
   tagTypes: ['Messaages'],
   endpoints: (builder) => ({
