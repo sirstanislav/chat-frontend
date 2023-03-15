@@ -2,7 +2,16 @@ import { io } from "socket.io-client";
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const location = document.location;
-const socket = io(`wss://chatback.fly.dev:${location.port}`);
+const token = localStorage.getItem('token');
+const socket = io(`wss://chatback.fly.dev:${location.port}`, {
+  transportOptions: {
+    polling: {
+      extraHeaders: {
+        'Authorization': `Bearer ${token}`,
+      },
+    },
+  },
+});
 // const socket = io('ws://localhost:3001');
 
 type Message = {
