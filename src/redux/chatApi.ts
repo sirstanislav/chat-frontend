@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const socket = io('ws://chat-backend-gtmd.onrender.com');
+const socket = io('wss://chat-backend-gtmd.onrender.com');
 // const socket = io('ws://localhost:3001');
 
 type Message = {
