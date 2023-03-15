@@ -1,7 +1,8 @@
 import { io } from "socket.io-client";
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const socket = io('ws://chat-backend-gtmd.onrender.com:3001');
+const socket = io('ws://chat-backend-gtmd.onrender.com');
+// const socket = io('ws://localhost:3001');
 
 type Message = {
   owner: string;
@@ -13,6 +14,7 @@ type Message = {
 export const chatApi = createApi({
   reducerPath: 'chatApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://chat-backend-gtmd.onrender.com/'}),
+  // baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001'}),
   tagTypes: ['Messaages'],
   endpoints: (builder) => ({
     signup: builder.mutation({
