@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const socket = io('ws://chat-backend-gtmd.onrender.com:3001');
+const socket = io('ws://chat-backend-gtmd.onrender.com:3001', {transports: ['websocket']});
 
 type Message = {
   owner: string;
