@@ -1,7 +1,8 @@
 import { io } from "socket.io-client";
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const socket = io('wss://chatback.fly.dev:3001');
+const location = document.location;
+const socket = io(`ws://chatback.fly.dev:${location.port}`);
 // const socket = io('ws://localhost:3001');
 
 type Message = {
