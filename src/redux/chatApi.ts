@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const socket = io('https://chat-backend-gtmd.onrender.com', { withCredentials: true });
+const socket = io('https://chat-backend-gtmd.onrender.com:3001', { withCredentials: true, transports: ["websocket", "polling"] });
 // const socket = io('ws://localhost:3001');
 
 type Message = {
