@@ -1,7 +1,6 @@
 import { io } from "socket.io-client";
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const location = document.location;
 const token = localStorage.getItem('token');
 const socket = io(`https://chatback.fly.dev`, {
   transportOptions: {
@@ -12,15 +11,6 @@ const socket = io(`https://chatback.fly.dev`, {
     },
   },
 });
-// const socket = io(`ws://localhost:3001`, {
-//   transportOptions: {
-//     polling: {
-//       extraHeaders: {
-//         'Authorization': `Bearer ${token}`,
-//       },
-//     },
-//   },
-// });
 
 type Message = {
   owner: string;
@@ -31,8 +21,7 @@ type Message = {
 
 export const chatApi = createApi({
   reducerPath: 'chatApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://chatback.fly.dev'}),
-  // baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001'}),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://chatback.fly.dev' }),
   tagTypes: ['Messaages'],
   endpoints: (builder) => ({
     signup: builder.mutation({
@@ -79,6 +68,7 @@ export const chatApi = createApi({
           }
           socket.on('getAllmessages', listener)
         } catch {
+          console.log("error cacheDataLoaded")
         }
         await cacheEntryRemoved
         socket.close()
