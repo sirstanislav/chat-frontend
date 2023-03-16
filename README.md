@@ -3,6 +3,8 @@
 ## About
 In this project i make the chat page with real-time update of messages over [RTK Query](https://redux-toolkit.js.org/tutorials/rtk-query) and [Socket Io](https://socket.io/).
 
+![Previw](https://github.com/sirstanislav/chat-frontend/blob/main/src/images/chat.png?raw=true)
+
 ## Online
 [Chat Online](https://chat-frontend-u3jf.onrender.com/)
 
