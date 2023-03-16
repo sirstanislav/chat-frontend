@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const location = document.location;
 const token = localStorage.getItem('token');
-const socket = io(`wss://chatback.fly.dev:3001`, {
+const socket = io(`https://chatback.fly.dev`, {
   transportOptions: {
     polling: {
       extraHeaders: {
